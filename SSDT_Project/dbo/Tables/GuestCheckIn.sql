@@ -1,0 +1,9 @@
+﻿CREATE TABLE GuestCheckIn
+(
+Id INT IDENTITY,
+CONSTRAINT PK_GuestCheckIn PRIMARY KEY(Id),
+Id_Guest INT NOT NULL,
+CONSTRAINT FK_GuestCheckIn_Guest FOREIGN KEY (Id_Guest) REFERENCES Guest(Id),
+Id_CheckIn INT NOT NULL, 
+CONSTRAINT FK_GuestCheckIn_CheckIn FOREIGN KEY(Id_CheckIn) REFERENCES CheckIn(Id)
+);

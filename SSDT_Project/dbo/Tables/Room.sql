@@ -1,0 +1,14 @@
+﻿CREATE TABLE Room (
+Id INT IDENTITY,
+CONSTRAINT PK_Room PRIMARY KEY(Id),
+RoomNumber INT NOT NULL,
+Id_Hotel INT NOT NULL,
+CONSTRAINT FK_Hotel FOREIGN KEY (Id_Hotel) REFERENCES Hotel(Id),
+CONSTRAINT Room_UniqueHotel UNIQUE(RoomNumber, Id_Hotel),
+NumberOfRooms INT NOT NULL,
+MaxNumberOfGuests INT NOT NULL,
+[Floor] INT NOT NULL,
+CONSTRAINT CK_Room_Floor CHECK([Floor]>0 AND [Floor]<11),
+VipStatus BIT NOT NULL DEFAULT(0),
+CostPerDay INT NOT NULL
+);
